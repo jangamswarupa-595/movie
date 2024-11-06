@@ -31,20 +31,18 @@ reportWebVitals(); */
 
 //3
 
+// src/index.js
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './redux/store'; // Ensure this path is correct and the file exists
-import App from './App'; // Ensure this path is correct and the file exists
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux'; // Import Provider
+import App from './App';
+import store from './redux/store'; // Import your Redux store
 
-
-ReactDOM.render(
-  <Provider store={store}> 
-    <App />
-  </Provider>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}> {/* Wrap your App with Provider */}
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
-
-reportWebVitals();
-
